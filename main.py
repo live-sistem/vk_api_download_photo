@@ -3,8 +3,8 @@ from PyQt5 import QtWidgets
 from design import Ui_Dialog
 from vk_save import url_api
 
-VK_USER_ID = 237723232
-VK_TOKEN = "vk1.a.rYHHIHcmZ7EMkrB1VBZJwiyi0hfLKMAJCwdWT2Ia2llZNmBwXnu_5UzR8jGJVG5jsHWkxEd9GVHb_wqtfV1iF65FKVQj2yuqyRhl3vQN6oWpqUIrus0C6UxgavxvTM26ATI9DbgtdCeiEukx05U6XgShaCJAsXhxK23-eXx8L9RUi_RYxji4iIegBfiIRR6L"
+VK_USER_ID = 999999999
+VK_TOKEN = ""
 dow = 0
 count = 10
 
