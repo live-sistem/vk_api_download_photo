@@ -7,7 +7,7 @@ VK_TOKEN = ""
 linkDir = 'C:\\Users\\admin\\Desktop\\ApiVk\\images\\all'
 dow = 0
 i = 0
-class main:
+class save:
 	response_json = None
 	# Создание запроса на API
 	def url_api(self, dow, count, VK_USER_ID, VK_TOKEN):
@@ -50,7 +50,7 @@ class main:
 				# print("OK")
 		return i
 
-test = main()
+test = save()
 
 while dow != 2179:
 	test.response_json = test.url_api(dow, "10", VK_USER_ID, VK_TOKEN)
@@ -61,5 +61,3 @@ while dow != 2179:
 	dow = test.download(test.response_json, i)
 	i = dow
 	print(dow)
-# response_file = open('response.json', 'wb')
-# response_file.write(response_json)
