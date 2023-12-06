@@ -1,10 +1,14 @@
 import sys
+import os
 from PyQt5 import QtWidgets
 from design import Ui_Dialog
 from vk_save import url_api
+from dotenv import load_dotenv
 
-VK_USER_ID = 237723232
-VK_TOKEN = "vk1.a.rYHHIHcmZ7EMkrB1VBZJwiyi0hfLKMAJCwdWT2Ia2llZNmBwXnu_5UzR8jGJVG5jsHWkxEd9GVHb_wqtfV1iF65FKVQj2yuqyRhl3vQN6oWpqUIrus0C6UxgavxvTM26ATI9DbgtdCeiEukx05U6XgShaCJAsXhxK23-eXx8L9RUi_RYxji4iIegBfiIRR6L"
+load_dotenv()
+VK_USER_ID = os.getenv('VK_USER_ID')
+VK_TOKEN = os.getenv('VK_TOKEN')
+
 dow = 0
 count = 10
 
@@ -13,7 +17,6 @@ class ExampleApp(QtWidgets.QMainWindow):
         super(ExampleApp, self).__init__()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self) 
-
         self.response_json = url_api(dow, "10", VK_USER_ID, VK_TOKEN)
         print(self.response_json)
 

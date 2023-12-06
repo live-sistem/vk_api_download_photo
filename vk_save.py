@@ -1,8 +1,9 @@
 import requests, json, time, os
 import re
 import urllib.request
+from dotenv import load_dotenv
 
-linkDir = 'C:\\Users\\admin\\Desktop\\ApiVk\\images\\all'
+CD_DIR = os.getenv('CD_DIR')
 
 def url_api(dow, count, VK_USER_ID, VK_TOKEN):
 	api = requests.get("https://api.vk.com/method/photos.getAll", params={
@@ -28,9 +29,9 @@ def download(response_json, i):
 	print(i, "Name : ",NameIMG, "Url : " ,Url_IMG, )
 	Mass_full_name.append(NameIMG)
 	suum = []
-	urllib.request.urlretrieve(Url_IMG, linkDir + NameIMG)
+	urllib.request.urlretrieve(Url_IMG, CD_DIR + NameIMG)
 	time.sleep(1)
-	if os.path.exists(linkDir + NameIMG):
+	if os.path.exists(CD_DIR + NameIMG):
 		print("файл найден____" ,NameIMG)
 	else:
 		print("файл не найден")
