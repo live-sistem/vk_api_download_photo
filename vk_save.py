@@ -15,23 +15,28 @@ def url_api(dow, count, VK_USER_ID, VK_TOKEN):
 		'photo_sizes': 0,
 		'v': 5.131,
 	})
-	return json.loads(api.text), api
+	return json.loads(api.text)
+	# return api, json.loads(api.text)
 
-def download(response_json, i):
-	suum = []
-	Mass_full_name = []
-	for files in response_json['response']['items']:
-		for WriteHeight in files['sizes']:
-			suum.append(WriteHeight["height"])
-		i += 1
+def download(response_json):
+	
+	res = response_json
+	print(res['response']['count'])
 
-		Url_IMG = files["sizes"][suum.index(max(suum))]["url"]
-		Update_Url_IMG = Url_IMG.split("/")[-1]
-		NameIMG = Update_Url_IMG.split("?")[0]
+	# suum = []
+	# Mass_full_name = []
+	# for files in response_json['response']['items']:
+	# 	for WriteHeight in files['sizes']:
+	# 		suum.append(WriteHeight["height"])
+	# 	i += 1
 
-		print(i, "Name : ",NameIMG, "Url : " ,Url_IMG, )
-		Mass_full_name.append(NameIMG)
-		suum = []
+	# 	Url_IMG = files["sizes"][suum.index(max(suum))]["url"]
+	# 	Update_Url_IMG = Url_IMG.split("/")[-1]
+	# 	NameIMG = Update_Url_IMG.split("?")[0]
+
+	# 	print(i, "Name : ",NameIMG, "Url : " ,Url_IMG, )
+	# 	Mass_full_name.append(NameIMG)
+	# 	suum = []
 		# urllib.request.urlretrieve(Url_IMG, CD_DIR + NameIMG)
 		# time.sleep(1)
 		# if os.path.exists(CD_DIR + NameIMG):
@@ -46,7 +51,6 @@ def download(response_json, i):
 			# for index in Mass_full_name:
 			# 	with1.write(index + '\n')
 			# print("OK")
-	return i
 
 # def brain():
 # 	while dow != 2179:

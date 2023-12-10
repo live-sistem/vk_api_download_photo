@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+count_dowunlout = 0 
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -7,7 +7,7 @@ class Ui_Dialog(object):
         Dialog.resize(738, 313)
 
         self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
-        self.buttonBox.setGeometry(QtCore.QRect(610, 170, 81, 61))
+        self.buttonBox.setGeometry(QtCore.QRect(610, 200, 88, 31))
         # self.buttonBox.setOrientation(QtCore.Qt.Vertical)
         self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName("buttonBox")
@@ -33,7 +33,7 @@ class Ui_Dialog(object):
 
         self.progressBar = QtWidgets.QProgressBar(Dialog)
         self.progressBar.setGeometry(QtCore.QRect(10, 260, 721, 23))
-        self.progressBar.setProperty("value", 24)
+        self.progressBar.setProperty("value", count_dowunlout)
         self.progressBar.setObjectName("progressBar")
 
         self.lineEdit = QtWidgets.QLineEdit(Dialog)

@@ -20,20 +20,22 @@ class ExampleApp(QtWidgets.QDialog):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self) 
         button = self.ui.buttonBox.clicked.connect(self.response)
-
+        
     def response(self):
-        input_id = self.ui.lineEdit.text()
-        input_token = self.ui.lineEdit_2.text()
-        try:
-            self.response_json = url_api(dow, 200, input_id, input_token)
-            print(self.response_json)
-        except:
-            msg = QMessageBox() 
-            msg.setIcon(QMessageBox.Information)  
-            msg.setWindowTitle("Warning")
-            msg.setText("Проблемы с соединением")
-            msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel) 
-            retval = msg.exec_()
+        # input_id = self.ui.lineEdit.text()
+        # input_token = self.ui.lineEdit_2.text()
+        self.response_jsons = url_api(dow, 10, VK_USER_ID, VK_TOKEN)
+        self.down = download(self.response_jsons)
+        print(self.down)
+
+
+        # except:
+        #     msg = QMessageBox() 
+        #     msg.setIcon(QMessageBox.Information)  
+        #     msg.setWindowTitle("Warning")
+        #     msg.setText("Проблемы с соединением")
+        #     msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel) 
+        #     retval = msg.exec_()
             
 
         # print("no")
