@@ -1,4 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from vk_save import *
 count_dowunlout = 0 
 
 class Ui_Dialog(object):
