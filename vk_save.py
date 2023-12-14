@@ -25,6 +25,23 @@ def info_max_count(response_jsons):
 	js = response_jsons
 	return js['response']['count']
 
+def test_api(response_json):
+	suum = []
+	i = 0 
+	Mass_full_name = []
+	for files in response_json['response']['items']:
+		for WriteHeight in files['sizes']:
+			suum.append(WriteHeight["height"])
+		i=i+1
+
+		Url_IMG = files["sizes"][suum.index(max(suum))]["url"]
+		sizing_img = files["sizes"][suum.index(max(suum))]["width"]	
+
+		Update_Url_IMG = Url_IMG.split("/")[-1]
+		NameIMG = Update_Url_IMG.split("?")[0]
+		print("размер ", sizing_img, "Название ", NameIMG)
+	return i
+
 def download(response_json):
 	# try:
 		suum = []
@@ -35,7 +52,7 @@ def download(response_json):
 				suum.append(WriteHeight["height"])
 			# тут нужно подумать как считать фотографии по одной и отправлять через return 
 			# тут должно i = 1
-			i=i+10
+			i=i+1
 			Url_IMG = files["sizes"][suum.index(max(suum))]["url"]
 
 			sizing_img = files["sizes"][suum.index(max(suum))]["width"]

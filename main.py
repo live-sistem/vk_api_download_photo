@@ -4,15 +4,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 
 from main_untitled import Ui_Dialog
-from vk_save import url_api, download, info_max_count
+from vk_save import url_api, download, info_max_count, test_api
 from dotenv import load_dotenv
 
 load_dotenv()
 VK_USER_ID = os.getenv('VK_USER_ID')
 VK_TOKEN = os.getenv('VK_TOKEN')
 
-dow = 0
-count = 10
 
 class ExampleApp(QtWidgets.QDialog):
     def __init__(self):
@@ -22,21 +20,30 @@ class ExampleApp(QtWidgets.QDialog):
         button = self.ui.buttonBox.clicked.connect(self.response)
         
     def response(self):  
- 
+            
             # input_id = self.ui.lineEdit.text()
-            # 
             # input_token = self.ui.lineEdit_2.text()
-            self.response_jsons = url_api(dow, 10, VK_USER_ID, VK_TOKEN)
-            self.count_in = download(self.response_jsons)
+            input_count = self.ui.lineEdit_3.text()
+
+            self.response_jsons = url_api(0, 1, VK_USER_ID, VK_TOKEN)    
+            self.count_in = test_api(self.response_jsons)
 
             if self.count_in != False:
                 # в принципе все логично но у PYQT, есть встроенные функции преобразования "строки состояния" в проценты от шагов минимального и максимального шага 
                 # тут инфа по ней https://doc.qt.io/qt-5/qprogressbar.html#details
                 self.max_count = info_max_count(self.response_jsons)
-                self.result_max_count = self.max_count / self.count_in
-                self.percentages = 100 / self.result_max_count
-                self.ui.progressBar.setValue(int(self.percentages))
+                print(self.max_count)
 
+                while self.count_in != self.max_count:
+                    self.response_jsons = url_api(0, self.count_in, VK_USER_ID, VK_TOKEN)
+                    self.count_in + 1
+                    self.downloads = download(self.response_jsons)
+
+
+                # логика процентов
+                # self.result_max_count = self.max_count / self.count_in
+                # self.percentages = 100 / self.result_max_count
+                # self.ui.progressBar.setValue(int(self.percentages))
             else:
                 msg = QMessageBox() 
                 msg.setIcon(QMessageBox.Information)  

@@ -28,13 +28,20 @@ class Ui_Dialog(object):
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
 
+        self.label_3 = QtWidgets.QLabel(Dialog)
+        self.label_3.setGeometry(QtCore.QRect(3, 100, 81, 40))
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName("label_3")
+
         self.toolButton = QtWidgets.QToolButton(Dialog)
         self.toolButton.setGeometry(QtCore.QRect(560, 200, 27, 31))
         self.toolButton.setObjectName("toolButton")
 
         self.progressBar = QtWidgets.QProgressBar(Dialog)
         self.progressBar.setGeometry(QtCore.QRect(10, 260, 721, 23))
-        self.progressBar.setProperty("value", count_dowunlout)
+        self.progressBar.setProperty("value", 50)
         self.progressBar.setObjectName("progressBar")
 
         self.lineEdit = QtWidgets.QLineEdit(Dialog)
@@ -44,6 +51,10 @@ class Ui_Dialog(object):
         self.lineEdit_2 = QtWidgets.QLineEdit(Dialog)
         self.lineEdit_2.setGeometry(QtCore.QRect(70, 60, 621, 31))
         self.lineEdit_2.setObjectName("lineEdit_2")
+
+        self.lineEdit_3 = QtWidgets.QLineEdit(Dialog)
+        self.lineEdit_3.setGeometry(QtCore.QRect(70, 110, 100, 31))
+        self.lineEdit_3.setObjectName("lineEdit_3")
         self.retranslateUi(Dialog)
 
     def retranslateUi(self, Dialog):
@@ -51,4 +62,5 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.label.setText(_translate("Dialog", "id"))
         self.label_2.setText(_translate("Dialog", "toke"))
+        self.label_3.setText(_translate("Dialog", "count"))
         self.toolButton.setText(_translate("Dialog", "..."))
