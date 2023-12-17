@@ -41,7 +41,7 @@ class Ui_Dialog(object):
 
         self.progressBar = QtWidgets.QProgressBar(Dialog)
         self.progressBar.setGeometry(QtCore.QRect(10, 260, 721, 23))
-        self.progressBar.setProperty("value", 50)
+        self.progressBar.setProperty("value", count_dowunlout)
         self.progressBar.setObjectName("progressBar")
 
         self.lineEdit = QtWidgets.QLineEdit(Dialog)

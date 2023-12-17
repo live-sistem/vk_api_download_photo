@@ -26,21 +26,24 @@ def info_max_count(response_jsons):
 	return js['response']['count']
 
 def test_api(response_json):
-	suum = []
-	i = 0 
-	Mass_full_name = []
-	for files in response_json['response']['items']:
-		for WriteHeight in files['sizes']:
-			suum.append(WriteHeight["height"])
-		i=i+1
+	try:
+		suum = []
+		i = 0 
+		Mass_full_name = []
+		for files in response_json['response']['items']:
+			for WriteHeight in files['sizes']:
+				suum.append(WriteHeight["height"])
+			i=i+1
 
-		Url_IMG = files["sizes"][suum.index(max(suum))]["url"]
-		sizing_img = files["sizes"][suum.index(max(suum))]["width"]	
+			Url_IMG = files["sizes"][suum.index(max(suum))]["url"]
+			sizing_img = files["sizes"][suum.index(max(suum))]["width"]	
 
-		Update_Url_IMG = Url_IMG.split("/")[-1]
-		NameIMG = Update_Url_IMG.split("?")[0]
-		print("размер ", sizing_img, "Название ", NameIMG)
-	return i
+			Update_Url_IMG = Url_IMG.split("/")[-1]
+			NameIMG = Update_Url_IMG.split("?")[0]
+			print("размер ", sizing_img, "Название ", NameIMG)
+		return i
+	except:
+		return False
 
 def download(response_json):
 	# try:
@@ -59,7 +62,7 @@ def download(response_json):
 			Update_Url_IMG = Url_IMG.split("/")[-1]
 			NameIMG = Update_Url_IMG.split("?")[0]
 
-			print("-", "NAME: ", NameIMG, " ",sizing_img, " ", "URL :" ,Url_IMG, )
+			#print("-", "NAME: ", NameIMG, " ",sizing_img, " ", "URL :" ,Url_IMG, )
 			time.sleep(1)
 			Mass_full_name.append(NameIMG)
 			suum = []
