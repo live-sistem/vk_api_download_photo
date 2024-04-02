@@ -80,7 +80,8 @@ def btn_download(input_id, input_token, max_count):
     process_2.start()
 
 def process_two(input_id, input_token, max_count, offset):
-    filepath = 'C:/Users/LORD2/Pictures/img_vk'
+    cwd = os.getlogin()
+    filepath = 'C:/Users/'+ cwd +'/Pictures/img_vk'
     btn_exit_ = ttk.Button(text="Завершить",)
     btn_exit_.pack(side=BOTTOM)
     if filepath != "":
