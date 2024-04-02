@@ -21,8 +21,7 @@ https://oauth.vk.com/authorize
 > То что должно получиться 
 
   https://oauth.vk.com/authorize?client_id=51636410&display=page&redirect_uri=https://ouath.vk.com/blank.html&scope=photos&response_type=token&v=5.131
-  
-
+  https://api.vk.com/method/status.get?user_id=51636410&v=5.131
 
 > готовая ссылка с токином (ПРИМЕР)
 
